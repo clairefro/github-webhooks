@@ -17,6 +17,10 @@ app.post("/hooks/github/", githubMiddleware, function (req, res) {
 	const textFiles = getChangedFiles(payload.commits, /.*\.txt$/);
 	console.log({ textfiles });
 });
+app.get("/hooks/github/", function (req, res) {
+	// Only respond to github push events
+	console.log("Nothing to see here");
+});
 
 // The Github push event returns an array of commits.
 // Each commit object has an array of added, modified and deleted files.
