@@ -15,8 +15,9 @@ app.post("/hooks/github/", githubMiddleware, function (req, res) {
 
 	console.log({ payload, repo, branch });
 	const textFiles = getChangedFiles(payload.commits, /.*\.txt$/);
-	console.log({ textfiles });
+	console.log({ textFiles });
 });
+
 app.get("/hooks/github/", function (req, res) {
 	// Only respond to github push events
 	console.log("Nothing to see here");
